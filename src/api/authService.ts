@@ -59,3 +59,17 @@ export const login = async (username: string, password: string) => {
     }
   }
 };
+
+export const dummyLogin = async (username: string, password: string) => {
+  const dummyUser = {
+    username: 'admin',
+    password: 'password123',
+  };
+
+  if (username === dummyUser.username && password === dummyUser.password) {
+    localStorage.setItem('token', 'dummy-token');
+    return { message: 'Login successful' };
+  } else {
+    throw new Error('Invalid username or password');
+  }
+};

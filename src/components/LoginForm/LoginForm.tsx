@@ -1,11 +1,11 @@
 import * as Yup from 'yup';
 
 import { Field, Form, Formik, FormikHelpers } from 'formik';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { InputField } from '../InputField';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { login } from '../../api';
+import { dummyLogin } from '../../api';
 import { useState } from 'react';
 
 // Adjust this import based on your project structure
@@ -26,14 +26,16 @@ const LoginSchema = Yup.object().shape({
 export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [generalError, setGeneralError] = useState('');
+  const navigate = useNavigate();
 
   const handleLoginSubmit = async (
     values: LoginFormValues,
     { setSubmitting }: FormikHelpers<LoginFormValues>,
   ) => {
     try {
-      const response = await login(values.username, values.password);
+      const response = await dummyLogin(values.username, values.password);
       console.log('Login successful:', response);
+      navigate('/');
       // Redirect or handle successful login here
     } catch (error: unknown) {
       console.error('Login error:', error);
@@ -64,7 +66,7 @@ export const LoginForm = () => {
             name='username'
             label='Username'
             type='text'
-            placeholder='Enter your username'
+            placeholder='Enter your username as admin'
             autoComplete='username'
           />
           <Field
@@ -73,7 +75,7 @@ export const LoginForm = () => {
             name='password'
             label='Password'
             type={showPassword ? 'text' : 'password'}
-            placeholder='Enter your password'
+            placeholder='Enter your password as password123'
             autoComplete='current-password'
           />
           <div className='flex items-center'>
