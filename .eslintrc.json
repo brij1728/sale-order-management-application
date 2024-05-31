@@ -1,4 +1,11 @@
 {
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2020,
@@ -7,27 +14,13 @@
       "jsx": true
     }
   },
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off"
+  },
   "settings": {
     "react": {
       "version": "detect"
     }
-  },
-  "env": {
-    "browser": true,
-    "amd": true,
-    "node": true,
-    "es6": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": ["react", "@typescript-eslint", "prettier"],
-  "rules": {
-    "prettier/prettier": ["error"],
-    "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": ["error"]
   }
 }
