@@ -39,7 +39,7 @@ export const InputField: React.FC<InputFieldProps> = ({
 
   return (
     <div>
-      <label htmlFor={id} className='block text-sm font-medium text-secondary'>
+      <label htmlFor={id} className='flex text-sm font-medium text-secondary'>
         {label}
       </label>
       <input
@@ -53,12 +53,12 @@ export const InputField: React.FC<InputFieldProps> = ({
         aria-describedby={error ? `${id}-error` : undefined}
       />
       {error && (
-        <p id={`${id}-error`} className='mt-2 text-sm text-red-600'>
+        <p id={`${id}-error`} className='mt-2 flex text-sm text-red-600'>
           {error}
         </p>
       )}
       {!error && extraFeedback && (
-        <p className='mt-1 text-sm text-blue-600'>{extraFeedback}</p>
+        <p className='mt-1 flex text-sm text-blue-600'>{extraFeedback}</p>
       )}
     </div>
   );
