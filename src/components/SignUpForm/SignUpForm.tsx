@@ -146,10 +146,10 @@ export const SignUpForm = () => {
           </button>
           <div className='flex items-center justify-between'>
             <Link
-              to='/signin'
+              to='/login'
               className='text-sm text-blue-700 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2'
             >
-              Already have an account? Sign In
+              Already have an account? Login
             </Link>
           </div>
         </Form>
